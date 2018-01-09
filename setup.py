@@ -19,7 +19,7 @@ setup(
     packages=['itk'],
     package_dir={'itk': 'itk'},
     download_url=r'https://github.com/InsightSoftwareConsortium/ITKNeuralNetworks',
-    description=r'ITK's neural networks remote module.',
+    description=r'ITK\'s neural networks remote module.',
     long_description='This remote module contains classes and support classes for the calculation of artificial neural networks. This can be used, for instance, for image classification.',
     classifiers=[
         "License :: OSI Approved :: Apache Software License",
