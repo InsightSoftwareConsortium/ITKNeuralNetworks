@@ -113,7 +113,7 @@ public:
   itkSetMacro(OutputLayerBias, ValueType);
   itkGetConstReferenceMacro(OutputLayerBias, ValueType);
 
-  virtual NetworkOutputType GenerateOutput(TMeasurementVector samplevector) ITK_OVERRIDE;
+  NetworkOutputType GenerateOutput(TMeasurementVector samplevector) override;
 
   void SetInputFunction(InputFunctionInterfaceType* f);
   void SetInputTransferFunction(TransferFunctionInterfaceType* f);
@@ -127,10 +127,10 @@ public:
 protected:
 
   RBFNetwork();
-  virtual ~RBFNetwork() ITK_OVERRIDE {};
+  ~RBFNetwork() override {};
 
   /** Method to print the object. */
-  virtual void PrintSelf( std::ostream& os, Indent indent ) const ITK_OVERRIDE;
+  void PrintSelf( std::ostream& os, Indent indent ) const override;
 
 private:
 
