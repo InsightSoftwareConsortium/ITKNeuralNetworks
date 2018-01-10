@@ -239,9 +239,9 @@ NeuralNetworkFileReader< TNetwork >
         typename tfType::Pointer tf = tfType::New();
         layerptr->SetTransferFunction(tf);
         }
-      else if ( !strcmp( (char *)mF->value, "nullptr" ) )
+      else if ( !strcmp( (char *)mF->value, "NULL" ) )
         {
-        std::cout << "nullptr" << std::endl;
+        std::cout << "NULL" << std::endl;
         layerptr->SetTransferFunction(nullptr);
         }
 
@@ -255,9 +255,9 @@ NeuralNetworkFileReader< TNetwork >
         typename  ifType::Pointer ifcn = ifType::New();
         layerptr->SetNodeInputFunction(ifcn);
         }
-      else if ( !strcmp( (char *)( mF->value ), "nullptr" ) )
+      else if ( !strcmp( (char *)( mF->value ), "NULL" ) )
         {
-        std::cout << "nullptr" << std::endl;
+        std::cout << "NULL" << std::endl;
         layerptr->SetNodeInputFunction(nullptr);
         }
       this->m_Network->AddLayer(layerptr);
