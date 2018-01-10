@@ -50,7 +50,7 @@ public:
   itkNewMacro(Self);
 
   /** Evaluate at the specified input position */
-  virtual ScalarType Evaluate(const ScalarType& input) const ITK_OVERRIDE;
+  ScalarType Evaluate(const ScalarType& input) const override;
 
   virtual ScalarType EvaluateDerivative(const ScalarType& dist,const ArrayType& input,
                                       char mode,int element_id=0) const ITK_OVERRIDE;
@@ -58,10 +58,10 @@ public:
 protected:
 
   GaussianRadialBasisFunction();
-  virtual ~GaussianRadialBasisFunction() ITK_OVERRIDE;
+  ~GaussianRadialBasisFunction() override;
 
   /** Method to print the object. */
-  virtual void PrintSelf( std::ostream& os, Indent indent ) const ITK_OVERRIDE;
+  void PrintSelf( std::ostream& os, Indent indent ) const override;
 
 };
 
