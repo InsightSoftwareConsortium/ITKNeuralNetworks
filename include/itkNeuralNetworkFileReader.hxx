@@ -294,11 +294,11 @@ NeuralNetworkFileReader< TNetwork >
     if ( !strcmp( (char *)( mF->value ), "CompletelyConnectedWeightSet" ) )
       {
       mF = MET_GetFieldRecord("WeightSet_Id", &this->m_Fields);
-      unsigned int weightsetid = (unsigned int)mF->value[0];
+      auto weightsetid = (unsigned int)mF->value[0];
       mF = MET_GetFieldRecord("SRC_Layer", &this->m_Fields);
-      unsigned int slayer = (unsigned int)mF->value[0];
+      auto slayer = (unsigned int)mF->value[0];
       mF = MET_GetFieldRecord("DEST_Layer", &this->m_Fields);
-      unsigned int dlayer = (unsigned int)mF->value[0];
+      auto dlayer = (unsigned int)mF->value[0];
 
       WeightSetPointer weightset;
 
@@ -374,7 +374,7 @@ NeuralNetworkFileReader< TNetwork >
         // Should that be the case, and will anyone use a single precision NN?
         if ( this->m_BinaryDataByteOrderMSB != MET_SystemByteOrderMSB() )
           {
-          char *data = (char *)WeightMatrix.data_block();
+          auto *data = (char *)WeightMatrix.data_block();
           for ( unsigned i = 0; i < rows * cols; i++ )
             {
             MET_ByteOrderSwap8(data);
