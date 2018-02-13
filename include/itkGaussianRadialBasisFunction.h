@@ -52,7 +52,7 @@ public:
   /** Evaluate at the specified input position */
   ScalarType Evaluate(const ScalarType& input) const override;
 
-  virtual ScalarType EvaluateDerivative(const ScalarType& dist,const ArrayType& input,
+  ScalarType EvaluateDerivative(const ScalarType& dist,const ArrayType& input,
                                       char mode,int element_id=0) const override;
 
 protected:
