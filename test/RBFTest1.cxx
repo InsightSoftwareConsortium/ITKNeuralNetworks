@@ -41,13 +41,13 @@ RBFTest1(int argc, char* argv[])
   int num_hidden_nodes = 2;  // 2 2 radial basis functions
   int num_output_nodes = 2;
 
-  typedef itk::Array<double> MeasurementVectorType;
-  typedef itk::Array<double> TargetVectorType;
+  using MeasurementVectorType = itk::Array<double>;
+  using TargetVectorType = itk::Array<double>;
 
-  typedef itk::Statistics::ListSample<MeasurementVectorType> SampleType;
-  typedef itk::Statistics::ListSample<TargetVectorType>      TargetType;
+  using SampleType = itk::Statistics::ListSample<MeasurementVectorType>;
+  using TargetType = itk::Statistics::ListSample<TargetVectorType>;
 
-  typedef itk::Statistics::EuclideanDistanceMetric<MeasurementVectorType> DistanceMetricType;
+  using DistanceMetricType = itk::Statistics::EuclideanDistanceMetric<MeasurementVectorType>;
 
   int num_train=1000;
   int num_test=200;
@@ -114,8 +114,7 @@ RBFTest1(int argc, char* argv[])
     }
   infile2.close();
 
-  typedef itk::Statistics::RBFNetwork<MeasurementVectorType, TargetVectorType>
-    RBFNetworkType;
+  using RBFNetworkType = itk::Statistics::RBFNetwork<MeasurementVectorType, TargetVectorType>;
   std::cout<<trainsample->Size()<<std::endl;
   RBFNetworkType::Pointer net1 = RBFNetworkType::New();
   net1->SetNumOfInputNodes(num_input_nodes);
@@ -125,24 +124,23 @@ RBFTest1(int argc, char* argv[])
   net1->SetOutputLayerBias(1.0);
   net1->SetClasses(2);
 
-  typedef itk::Statistics::RBFBackPropagationLearningFunction<
-    RBFNetworkType::LayerInterfaceType, TargetVectorType> RBFLearningFunctionType;
+  using RBFLearningFunctionType = itk::Statistics::RBFBackPropagationLearningFunction<
+    RBFNetworkType::LayerInterfaceType, TargetVectorType>;
   RBFLearningFunctionType::Pointer learningfunction=RBFLearningFunctionType::New();
 
   net1->SetLearningFunction(learningfunction.GetPointer());
 
 
   //Kmeans Initialization of RBF Centers
-  typedef itk::Statistics::WeightedCentroidKdTreeGenerator< SampleType >
-    TreeGeneratorType;
+  using TreeGeneratorType = itk::Statistics::WeightedCentroidKdTreeGenerator< SampleType >;
   TreeGeneratorType::Pointer treeGenerator = TreeGeneratorType::New();
 
   treeGenerator->SetSample( trainsample );
   treeGenerator->SetBucketSize( 16 );
   treeGenerator->Update();
 
-  typedef TreeGeneratorType::KdTreeType                         TreeType;
-  typedef itk::Statistics::KdTreeBasedKmeansEstimator<TreeType> EstimatorType;
+  using TreeType = TreeGeneratorType::KdTreeType;
+  using EstimatorType = itk::Statistics::KdTreeBasedKmeansEstimator<TreeType>;
   EstimatorType::Pointer estimator = EstimatorType::New();
 
   int m1 = rand() % num_train;
@@ -194,7 +192,7 @@ RBFTest1(int argc, char* argv[])
   net1->InitializeWeights();
   net1->SetLearningRate(0.5);
 
-  typedef itk::Statistics::IterativeSupervisedTrainingFunction<SampleType, TargetType, double> TrainingFcnType;
+  using TrainingFcnType = itk::Statistics::IterativeSupervisedTrainingFunction<SampleType, TargetType, double>;
 
   TrainingFcnType::Pointer trainingfcn = TrainingFcnType::New();
   trainingfcn->SetIterations(500);

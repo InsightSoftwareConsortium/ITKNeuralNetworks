@@ -38,31 +38,31 @@ template<typename TMeasurementVector, typename TTargetVector>
 class ITK_TEMPLATE_EXPORT LayerBase : public LightProcessObject
 {
 public:
-  typedef LayerBase                Self;
-  typedef LightProcessObject       Superclass;
-  typedef SmartPointer<Self>       Pointer;
-  typedef SmartPointer<const Self> ConstPointer;
+  using Self = LayerBase;
+  using Superclass = LightProcessObject;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Method for creation through the object factory. */
   itkTypeMacro(LayerBase, LightProcessObject);
 
-  typedef TMeasurementVector InputVectorType;
-  typedef TTargetVector      OutputVectorType;
+  using InputVectorType = TMeasurementVector;
+  using OutputVectorType = TTargetVector;
 
-  typedef typename TMeasurementVector::ValueType ValueType;
-  typedef ValueType*                             ValuePointer;
-  typedef const ValueType*                       ValueConstPointer;
-  typedef vnl_vector<ValueType>                  NodeVectorType;
-  typedef Array<ValueType>                       InternalVectorType;
+  using ValueType = typename TMeasurementVector::ValueType;
+  using ValuePointer = ValueType*;
+  using ValueConstPointer = const ValueType*;
+  using NodeVectorType = vnl_vector<ValueType>;
+  using InternalVectorType = Array<ValueType>;
 
-  typedef LayerBase                                       LayerInterfaceType;
-  typedef WeightSetBase<TMeasurementVector,TTargetVector> WeightSetType;
-  typedef WeightSetBase<TMeasurementVector,TTargetVector> WeightSetInterfaceType;
-  typedef InputFunctionBase<ValueType*, ValueType>        InputFunctionInterfaceType;
-  typedef TransferFunctionBase<ValueType>                 TransferFunctionInterfaceType;
+  using LayerInterfaceType = LayerBase;
+  using WeightSetType = WeightSetBase<TMeasurementVector,TTargetVector>;
+  using WeightSetInterfaceType = WeightSetBase<TMeasurementVector,TTargetVector>;
+  using InputFunctionInterfaceType = InputFunctionBase<ValueType*, ValueType>;
+  using TransferFunctionInterfaceType = TransferFunctionBase<ValueType>;
 
   //The only valid layer types
-  typedef enum {  INVALIDLAYER=0, INPUTLAYER=1, HIDDENLAYER=2, OUTPUTLAYER=3 } LayerTypeCode;
+  using LayerTypeCode = enum {  INVALIDLAYER=0, INPUTLAYER=1, HIDDENLAYER=2, OUTPUTLAYER=3 };
 
   virtual void SetNumberOfNodes(unsigned int);
   unsigned int GetNumberOfNodes() const;

@@ -55,11 +55,11 @@ class ITK_TEMPLATE_EXPORT NeuralNetworkFileWriter:public Object
 {
 public:
 
-  /** SmartPointer typedef support */
-  typedef NeuralNetworkFileWriter    Self;
-  typedef Object                     Superclass;
-  typedef SmartPointer< Self >       Pointer;
-  typedef SmartPointer< const Self > ConstPointer;
+  /** SmartPointer type alias support */
+  using Self = NeuralNetworkFileWriter;
+  using Superclass = Object;
+  using Pointer = SmartPointer< Self >;
+  using ConstPointer = SmartPointer< const Self >;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(NeuralNetworkFileWriter, Object);
@@ -67,35 +67,29 @@ public:
   /** Method for creation through the object factory */
   itkNewMacro(Self);
 
-  typedef typename TNetwork::MeasurementVectorType MeasurementVectorType;
-  typedef typename TNetwork::TargetVectorType      TargetVectorType;
+  using MeasurementVectorType = typename TNetwork::MeasurementVectorType;
+  using TargetVectorType = typename TNetwork::TargetVectorType;
 
-  typedef Statistics::LayerBase< MeasurementVectorType, TargetVectorType > LayerBaseType;
-  typedef typename LayerBaseType::Pointer                                  LayerBasePointer;
-  typedef typename LayerBaseType::ConstPointer                             LayerBaseConstPointer;
+  using LayerBaseType = Statistics::LayerBase< MeasurementVectorType, TargetVectorType >;
+  using LayerBasePointer = typename LayerBaseType::Pointer;
+  using LayerBaseConstPointer = typename LayerBaseType::ConstPointer;
 
-//   typedef typename TNetwork::Pointer                       NetworkPointer;
-//   typedef typename TNetwork::ConstPointer
-//                  NetworkConstPointer;
+//   using NetworkPointer = typename TNetwork::Pointer;
+//   using NetworkConstPointer = typename TNetwork::ConstPointer                ;
 
-// typedef typename TNetwork::LayerType                     LayerType;
-// typedef typename LayerType::Pointer                      LayerPointer;
-// typedef typename LayerType::ConstPointer                 LayerConstPointer;
-// typedef typename LayerType::TransferFunctionType::Pointer
-//      TransferFunctionPointer;
-// typedef typename LayerType::TransferFunctionType::ConstPointer
-// TransferFunctionConstPointer;
+// using LayerType = typename TNetwork::LayerType;
+// using LayerPointer = typename LayerType::Pointer;
+// using LayerConstPointer = typename LayerType::ConstPointer;
+// using TransferFunctionPointer = typename LayerType::TransferFunctionType::Pointer    ;
+// using TransferFunctionConstPointer = typename LayerType::TransferFunctionType::ConstPointer;
 
-// typedef typename LayerType::InputFunctionType::Pointer
-//         InputFunctionPointer;
-// typedef typename LayerType::InputFunctionType::ConstPointer
-//    InputFunctionConstPointer;
+// using InputFunctionPointer = typename LayerType::InputFunctionType::Pointer       ;
+// using InputFunctionConstPointer = typename LayerType::InputFunctionType::ConstPointer   ;
 
-// typedef typename LayerType::WeightSetType                WeightSetType;
-// typedef typename LayerType::WeightSetPointer             WeightSetPointer;
-// typedef typename LayerType::WeightSetConstPointer
-//        WeightSetConstPointer;
-//  typedef typename LayerType::ValueType                    ValueType;
+// using WeightSetType = typename LayerType::WeightSetType;
+// using WeightSetPointer = typename LayerType::WeightSetPointer;
+// using WeightSetConstPointer = typename LayerType::WeightSetConstPointer      ;
+//  using ValueType = typename LayerType::ValueType;
 
   /** Set the filename  */
   itkSetStringMacro(FileName);
@@ -119,7 +113,7 @@ public:
   //and the MetaIO mechanism is not desigend for the way that this is used
   //to write these files out.
   // Comment this code out until it can be robustly written.
-  typedef enum { IGNORE = 0, ASCII = 1, BINARY = 2 } NetworkWriteWeightsType;
+  using NetworkWriteWeightsType = enum { IGNORE = 0, ASCII = 1, BINARY = 2 };
   itkSetEnumMacro(WriteWeightValuesType, NetworkWriteWeightsType);
   itkGetEnumMacro(WriteWeightValuesType, NetworkWriteWeightsType);
 
@@ -131,7 +125,7 @@ protected:
 private:
   void ClearFields();
 
-  typedef std::vector< MET_FieldRecordType * > FieldsContainerType;
+  using FieldsContainerType = std::vector< MET_FieldRecordType * >;
 
   //Attempting to avoid VS 6 compiler error typename TNetwork::ConstPointer
   // m_Network;

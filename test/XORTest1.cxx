@@ -40,12 +40,12 @@ XORTest1(int argc, char* argv[])
   unsigned int num_hidden_nodes = 5;
   unsigned int num_output_nodes = 1;
 
-  typedef itk::Array<double> MeasurementVectorType;
-  typedef itk::Array<double> TargetVectorType;
+  using MeasurementVectorType = itk::Array<double>;
+  using TargetVectorType = itk::Array<double>;
 
-  typedef itk::Statistics::ListSample<MeasurementVectorType> SampleType;
-  typedef itk::Statistics::ListSample<TargetVectorType>      TargetType;
-  typedef itk::Statistics::BatchSupervisedTrainingFunction<SampleType, TargetType, double>                                                  TrainingFcnType;
+  using SampleType = itk::Statistics::ListSample<MeasurementVectorType>;
+  using TargetType = itk::Statistics::ListSample<TargetVectorType>;
+  using TrainingFcnType = itk::Statistics::BatchSupervisedTrainingFunction<SampleType, TargetType, double>;
 
   MeasurementVectorType mv;
   mv.SetSize(num_input_nodes);
@@ -81,7 +81,7 @@ XORTest1(int argc, char* argv[])
 
   std::cout << sample->Size() << std::endl;
 
-  typedef itk::Statistics::OneHiddenLayerBackPropagationNeuralNetwork<MeasurementVectorType, TargetVectorType> OneHiddenLayerBackPropagationNeuralNetworkType;
+  using OneHiddenLayerBackPropagationNeuralNetworkType = itk::Statistics::OneHiddenLayerBackPropagationNeuralNetwork<MeasurementVectorType, TargetVectorType>;
   OneHiddenLayerBackPropagationNeuralNetworkType::Pointer net1 = OneHiddenLayerBackPropagationNeuralNetworkType::New();
   net1->SetNumOfInputNodes(num_input_nodes);
   net1->SetNumOfFirstHiddenNodes(num_hidden_nodes);

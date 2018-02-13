@@ -35,11 +35,11 @@ class ITK_TEMPLATE_EXPORT MultiquadricRadialBasisFunction : public TransferFunct
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef MultiquadricRadialBasisFunction  Self;
-  typedef TransferFunctionBase<ScalarType> Superclass;
-  typedef SmartPointer<Self>               Pointer;
-  typedef SmartPointer<const Self>         ConstPointer;
+  /** Standard class type alias. */
+  using Self = MultiquadricRadialBasisFunction;
+  using Superclass = TransferFunctionBase<ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(MultiquadricRadialBasisFunction, TransferFunctionBase);

@@ -36,21 +36,21 @@ class TransferFunctionBase : public FunctionBase<ScalarType, ScalarType>
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef TransferFunctionBase                 Self;
-  typedef FunctionBase<ScalarType, ScalarType> Superclass;
-  typedef SmartPointer<Self>                   Pointer;
-  typedef SmartPointer<const Self>             ConstPointer;
+  /** Standard class type alias. */
+  using Self = TransferFunctionBase;
+  using Superclass = FunctionBase<ScalarType, ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(TransferFunctionBase, FunctionBase);
 
   /** Input type */
-  typedef ScalarType InputType;
+  using InputType = ScalarType;
 
   /** Output type */
-  typedef ScalarType        OutputType;
-  typedef Array<ScalarType> ArrayType;
+  using OutputType = ScalarType;
+  using ArrayType = Array<ScalarType>;
 
   /** Evaluate at the specified input position */
   OutputType Evaluate(const InputType& input) const override = 0;

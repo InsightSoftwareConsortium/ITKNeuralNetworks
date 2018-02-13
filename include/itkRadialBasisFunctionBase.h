@@ -36,17 +36,17 @@ class RadialBasisFunctionBase : public FunctionBase<ScalarType,ScalarType>
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef RadialBasisFunctionBase             Self;
-  typedef FunctionBase<ScalarType,ScalarType> Superclass;
-  typedef SmartPointer<Self>                  Pointer;
-  typedef SmartPointer<const Self>            ConstPointer;
+  /** Standard class type alias. */
+  using Self = RadialBasisFunctionBase;
+  using Superclass = FunctionBase<ScalarType,ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(RadialBasisFunctionBase, FunctionBase);
 
   /** Input/Output types */
-  typedef Array<ScalarType> ArrayType;
+  using ArrayType = Array<ScalarType>;
 
   ///** Evaluate at the specified input position */
   ScalarType Evaluate(const ScalarType& input) const override =0;

@@ -35,22 +35,22 @@ template<typename TMeasurementVector, typename TTargetVector>
 class ErrorFunctionBase : public FunctionBase<TMeasurementVector, TTargetVector>
 {
 public:
-  /** Standard class typedefs. */
-  typedef ErrorFunctionBase                               Self;
-  typedef FunctionBase<TMeasurementVector, TTargetVector> Superclass;
-  typedef SmartPointer<Self>                              Pointer;
-  typedef SmartPointer<const Self>                        ConstPointer;
+  /** Standard class type alias. */
+  using Self = ErrorFunctionBase;
+  using Superclass = FunctionBase<TMeasurementVector, TTargetVector>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(ErrorFunctionBase, FunctionBase);
 
   /** Error type */
-  typedef TMeasurementVector ErrorVectorType;
+  using ErrorVectorType = TMeasurementVector;
 
   /** Output type */
-  typedef TTargetVector OutputType;
+  using OutputType = TTargetVector;
 
-  typedef Array<double> InternalVectorType;
+  using InternalVectorType = Array<double>;
 
   OutputType Evaluate(const ErrorVectorType&) const override = 0;
 

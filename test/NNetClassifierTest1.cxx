@@ -31,12 +31,11 @@
 
 #define ROUND(x) (floor(x+0.5))
 
-typedef itk::Array<double>                                 MeasurementVectorType;
-typedef itk::Array<double>                                 TargetVectorType;
-typedef itk::Statistics::ListSample<TargetVectorType>      TargetType;
-typedef itk::Statistics::ListSample<MeasurementVectorType> SampleType;
-typedef itk::Statistics::OneHiddenLayerBackPropagationNeuralNetwork<MeasurementVectorType, TargetVectorType>
-                                                           OneHiddenLayerBackPropagationNeuralNetworkType;
+using MeasurementVectorType = itk::Array<double>;
+using TargetVectorType = itk::Array<double>;
+using TargetType = itk::Statistics::ListSample<TargetVectorType>;
+using SampleType = itk::Statistics::ListSample<MeasurementVectorType>;
+using OneHiddenLayerBackPropagationNeuralNetworkType = itk::Statistics::OneHiddenLayerBackPropagationNeuralNetwork<MeasurementVectorType, TargetVectorType>;
 
 
 static int TestNetwork(SampleType::Pointer TestSample, TargetType::Pointer TestTargets,
@@ -110,7 +109,7 @@ NNetClassifierTest1(int argc, char* argv[])
   int num_hidden_nodes = 5;
   int num_output_nodes = 1;
 
-  typedef itk::Statistics::BatchSupervisedTrainingFunction<SampleType, TargetType, double> TrainingFcnType;
+  using TrainingFcnType = itk::Statistics::BatchSupervisedTrainingFunction<SampleType, TargetType, double>;
 
   MeasurementVectorType mv;
   TargetVectorType tv;
@@ -190,10 +189,10 @@ NNetClassifierTest1(int argc, char* argv[])
 
 #ifdef USE_REVIEW_NETIO
     {//Test Reading and writing.
-    typedef itk::Statistics::OneHiddenLayerBackPropagationNeuralNetwork<MeasurementVectorType, TargetVectorType> OneHiddenLayerBackPropagationNeuralNetworkType;
+    using OneHiddenLayerBackPropagationNeuralNetworkType = itk::Statistics::OneHiddenLayerBackPropagationNeuralNetwork<MeasurementVectorType, TargetVectorType>;
     std::string TestOneHiddenLayerNetFileName("/tmp/OneLayer.net");
     {
-    typedef itk::NeuralNetworkFileWriter<OneHiddenLayerBackPropagationNeuralNetworkType> OHLWriterType;
+    using OHLWriterType = itk::NeuralNetworkFileWriter<OneHiddenLayerBackPropagationNeuralNetworkType>;
     OHLWriterType::Pointer writerOneHiddenLayerBackPropagation=OHLWriterType::New();
     writerOneHiddenLayerBackPropagation->SetWriteWeightValuesType(OHLWriterType::ASCII);
     writerOneHiddenLayerBackPropagation->SetFileName(TestOneHiddenLayerNetFileName);
@@ -201,7 +200,7 @@ NNetClassifierTest1(int argc, char* argv[])
     writerOneHiddenLayerBackPropagation->Update();
     }
     {
-    typedef itk::NeuralNetworkFileReader<OneHiddenLayerBackPropagationNeuralNetworkType> OHLReaderType;
+    using OHLReaderType = itk::NeuralNetworkFileReader<OneHiddenLayerBackPropagationNeuralNetworkType>;
     OHLReaderType::Pointer readerOneHiddenLayerBackPropagation=OHLReaderType::New();
     readerOneHiddenLayerBackPropagation->SetFileName(TestOneHiddenLayerNetFileName);
     readerOneHiddenLayerBackPropagation->SetReadWeightValuesType( OHLReaderType::ASCII );

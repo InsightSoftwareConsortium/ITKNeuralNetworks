@@ -31,7 +31,7 @@ RBFLayer<TMeasurementVector,TTargetVector>
 {
   m_Bias = 1;
   m_NumClasses = 0;
-  typedef GaussianRadialBasisFunction<ValueType> GRBFType;
+  using GRBFType = GaussianRadialBasisFunction<ValueType>;
   m_RBF=GRBFType::New();
   m_DistanceMetric = DistanceMetricType::New();
   //  TMeasurementVector origin;

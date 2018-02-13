@@ -41,17 +41,17 @@ class ITK_TEMPLATE_EXPORT WeightSetBase : public LightProcessObject
 {
 public:
 
-  typedef WeightSetBase            Self;
-  typedef LightProcessObject       Superclass;
-  typedef SmartPointer<Self>       Pointer;
-  typedef SmartPointer<const Self> ConstPointer;
+  using Self = WeightSetBase;
+  using Superclass = LightProcessObject;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
   itkTypeMacro(WeightSetBase, LightProcessObject);
 
-  typedef MersenneTwisterRandomVariateGenerator  RandomVariateGeneratorType;
+  using RandomVariateGeneratorType = MersenneTwisterRandomVariateGenerator;
 
-  typedef typename TMeasurementVector::ValueType ValueType;
-  typedef ValueType*                             ValuePointer;
-  typedef const ValueType*                       ValueConstPointer;
+  using ValueType = typename TMeasurementVector::ValueType;
+  using ValuePointer = ValueType*;
+  using ValueConstPointer = const ValueType*;
 
   void Initialize();
 

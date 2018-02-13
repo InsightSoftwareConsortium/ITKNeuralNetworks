@@ -37,14 +37,14 @@ class ITK_TEMPLATE_EXPORT SquaredDifferenceErrorFunction : public ErrorFunctionB
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef SquaredDifferenceErrorFunction                    Self;
-  typedef ErrorFunctionBase<TMeasurementVector, ScalarType> Superclass;
-  typedef SmartPointer<Self>                                Pointer;
-  typedef SmartPointer<const Self>                          ConstPointer;
+  /** Standard class type alias. */
+  using Self = SquaredDifferenceErrorFunction;
+  using Superclass = ErrorFunctionBase<TMeasurementVector, ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
-  typedef typename Superclass::ErrorVectorType    ErrorVectorType;
-  typedef typename Superclass::InternalVectorType InternalVectorType;
+  using ErrorVectorType = typename Superclass::ErrorVectorType;
+  using InternalVectorType = typename Superclass::InternalVectorType;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(SquaredDifferenceErrorFunction, ErrorFunctionBase);

@@ -37,22 +37,22 @@ int itkNeuralNetworkIOTest(int argc,char* argv[])
 
   const unsigned int num_input_nodes=2;
   const unsigned int num_output_nodes=1;
-  typedef itk::Vector<double, num_input_nodes>   MeasurementVectorType;
-  typedef itk::Vector<double, num_output_nodes>  TargetVectorType;
+  using MeasurementVectorType = itk::Vector<double, num_input_nodes>;
+  using TargetVectorType = itk::Vector<double, num_output_nodes>;
 
 #if 1
-  typedef itk::Statistics::MultilayerNeuralNetworkBase<
-    MeasurementVectorType, TargetVectorType> NetworkType;
+  using NetworkType = itk::Statistics::MultilayerNeuralNetworkBase<
+    MeasurementVectorType, TargetVectorType>;
 
-  typedef itk::Statistics::ListSample<MeasurementVectorType>    SampleType;
-  typedef itk::Statistics::ListSample<TargetVectorType>         TargetType;
+  using SampleType = itk::Statistics::ListSample<MeasurementVectorType>;
+  using TargetType = itk::Statistics::ListSample<TargetVectorType>;
 
-  typedef itk::Statistics::IterativeSupervisedTrainingFunction<
-    SampleType, TargetType, double> TrainingFcnType;
+  using TrainingFcnType = itk::Statistics::IterativeSupervisedTrainingFunction<
+    SampleType, TargetType, double>;
 
-  typedef itk::NeuralNetworkFileReader<NetworkType> ReaderType;
+  using ReaderType = itk::NeuralNetworkFileReader<NetworkType>;
 
-  typedef itk::NeuralNetworkFileWriter<NetworkType> WriterType;
+  using WriterType = itk::NeuralNetworkFileWriter<NetworkType>;
 
   ReaderType::Pointer reader=ReaderType::New();
 
@@ -225,7 +225,7 @@ int itkNeuralNetworkIOTest(int argc,char* argv[])
   //Now test reading and writing of OneHiddenLayerBackPropagationNeuralNetwork
     {
     const std::string TestOneHiddenLayerNetFileName=tempDataDirectory+std::string("/OneHiddenLayerNet.txt");
-    typedef itk::Statistics::OneHiddenLayerBackPropagationNeuralNetwork<MeasurementVectorType, TargetVectorType> OneHiddenLayerBackPropagationNeuralNetworkType;
+    using OneHiddenLayerBackPropagationNeuralNetworkType = itk::Statistics::OneHiddenLayerBackPropagationNeuralNetwork<MeasurementVectorType, TargetVectorType>;
     OneHiddenLayerBackPropagationNeuralNetworkType::Pointer OneHiddenLayerNet = OneHiddenLayerBackPropagationNeuralNetworkType::New();
     OneHiddenLayerNet->SetNumOfInputNodes(2);
     OneHiddenLayerNet->SetNumOfFirstHiddenNodes(2);
@@ -239,7 +239,7 @@ int itkNeuralNetworkIOTest(int argc,char* argv[])
     std::cout << OneHiddenLayerNet << std::endl;
     std::cout << "___________________________________OneHiddenLayerNet: " << TestOneHiddenLayerNetFileName << std::endl;
       {
-      typedef itk::NeuralNetworkFileWriter<OneHiddenLayerBackPropagationNeuralNetworkType> OHLWriterType;
+      using OHLWriterType = itk::NeuralNetworkFileWriter<OneHiddenLayerBackPropagationNeuralNetworkType>;
       OHLWriterType::Pointer writerOneHiddenLayerBackPropagation=OHLWriterType::New();
       writerOneHiddenLayerBackPropagation->SetWriteWeightValuesType(OHLWriterType::ASCII);
       writerOneHiddenLayerBackPropagation->SetFileName(TestOneHiddenLayerNetFileName);
@@ -247,7 +247,7 @@ int itkNeuralNetworkIOTest(int argc,char* argv[])
       writerOneHiddenLayerBackPropagation->Update();
       }
       {
-      typedef itk::NeuralNetworkFileReader<OneHiddenLayerBackPropagationNeuralNetworkType> OHLReaderType;
+      using OHLReaderType = itk::NeuralNetworkFileReader<OneHiddenLayerBackPropagationNeuralNetworkType>;
       OHLReaderType::Pointer readerOneHiddenLayerBackPropagation=OHLReaderType::New();
       readerOneHiddenLayerBackPropagation->SetFileName(TestOneHiddenLayerNetFileName);
       readerOneHiddenLayerBackPropagation->SetReadWeightValuesType( OHLReaderType::ASCII );
@@ -259,14 +259,14 @@ int itkNeuralNetworkIOTest(int argc,char* argv[])
   //Now test reading and writing of TwoHiddenLayerBackPropagationNeuralNetwork
     {
     const std::string TestTwoHiddenLayerNetFileName=tempDataDirectory+std::string("/TwoHiddenLayerNet.txt");
-    typedef itk::Statistics::TwoHiddenLayerBackPropagationNeuralNetwork<MeasurementVectorType, TargetVectorType> TwoHiddenLayerBackPropagationNeuralNetworkType;
+    using TwoHiddenLayerBackPropagationNeuralNetworkType = itk::Statistics::TwoHiddenLayerBackPropagationNeuralNetwork<MeasurementVectorType, TargetVectorType>;
     TwoHiddenLayerBackPropagationNeuralNetworkType::Pointer TwoHiddenLayerNet = TwoHiddenLayerBackPropagationNeuralNetworkType::New();
     TwoHiddenLayerNet->SetNumOfInputNodes(7);
     TwoHiddenLayerNet->SetNumOfFirstHiddenNodes(5);
     TwoHiddenLayerNet->SetNumOfSecondHiddenNodes(3);
     TwoHiddenLayerNet->SetNumOfOutputNodes(1);
 
-    typedef itk::NeuralNetworkFileWriter<TwoHiddenLayerBackPropagationNeuralNetworkType> OHLWriterType;
+    using OHLWriterType = itk::NeuralNetworkFileWriter<TwoHiddenLayerBackPropagationNeuralNetworkType>;
 
     TwoHiddenLayerNet->InitializeWeights();
     TwoHiddenLayerNet->SetLearningRate(0.001);
@@ -282,7 +282,7 @@ int itkNeuralNetworkIOTest(int argc,char* argv[])
       writerTwoHiddenLayerBackPropagation->Update();
       }
       {
-      typedef itk::NeuralNetworkFileReader<TwoHiddenLayerBackPropagationNeuralNetworkType> OHLReaderType;
+      using OHLReaderType = itk::NeuralNetworkFileReader<TwoHiddenLayerBackPropagationNeuralNetworkType>;
       OHLReaderType::Pointer readerTwoHiddenLayerBackPropagation=OHLReaderType::New();
       readerTwoHiddenLayerBackPropagation->SetFileName(TestTwoHiddenLayerNetFileName);
       readerTwoHiddenLayerBackPropagation->SetReadWeightValuesType( OHLReaderType::ASCII );

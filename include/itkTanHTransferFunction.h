@@ -35,11 +35,11 @@ class ITK_TEMPLATE_EXPORT TanHTransferFunction : public TransferFunctionBase<Sca
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef TanHTransferFunction             Self;
-  typedef TransferFunctionBase<ScalarType> Superclass;
-  typedef SmartPointer<Self>               Pointer;
-  typedef SmartPointer<const Self>         ConstPointer;
+  /** Standard class type alias. */
+  using Self = TanHTransferFunction;
+  using Superclass = TransferFunctionBase<ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(TanHTransferFunction, TransferFunctionBase);

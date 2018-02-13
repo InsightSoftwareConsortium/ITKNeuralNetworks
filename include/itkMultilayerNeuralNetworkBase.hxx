@@ -31,7 +31,7 @@ template<typename TMeasurementVector, typename TTargetVector,typename TLearningL
 MultilayerNeuralNetworkBase<TMeasurementVector,TTargetVector,TLearningLayer>
 ::MultilayerNeuralNetworkBase()
 {
-  typedef ErrorBackPropagationLearningWithMomentum<TLearningLayer,TTargetVector> DefaultLearningFunctionType;
+  using DefaultLearningFunctionType = ErrorBackPropagationLearningWithMomentum<TLearningLayer,TTargetVector>;
   m_LearningFunction = DefaultLearningFunctionType::New();
   m_LearningRate = 0.001;
   //#define __USE_OLD_INTERFACE  Comment out to ensure that new interface works

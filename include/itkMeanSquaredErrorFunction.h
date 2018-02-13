@@ -37,13 +37,13 @@ class ITK_TEMPLATE_EXPORT MeanSquaredErrorFunction : public ErrorFunctionBase<TM
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef MeanSquaredErrorFunction                          Self;
-  typedef ErrorFunctionBase<TMeasurementVector, ScalarType> Superclass;
-  typedef SmartPointer<Self>                                Pointer;
-  typedef SmartPointer<const Self>                          ConstPointer;
-  typedef typename Superclass::ErrorVectorType              ErrorVectorType;
-  typedef typename Superclass::InternalVectorType           InternalVectorType;
+  /** Standard class type alias. */
+  using Self = MeanSquaredErrorFunction;
+  using Superclass = ErrorFunctionBase<TMeasurementVector, ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
+  using ErrorVectorType = typename Superclass::ErrorVectorType;
+  using InternalVectorType = typename Superclass::InternalVectorType;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(MeanSquaredErrorFunction, FunctionBase);

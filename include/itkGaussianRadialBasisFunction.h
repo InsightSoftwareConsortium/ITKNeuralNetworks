@@ -36,12 +36,12 @@ class ITK_TEMPLATE_EXPORT GaussianRadialBasisFunction : public RadialBasisFuncti
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef GaussianRadialBasisFunction         Self;
-  typedef RadialBasisFunctionBase<ScalarType> Superclass;
-  typedef typename Superclass::ArrayType      ArrayType;
-  typedef SmartPointer<Self>                  Pointer;
-  typedef SmartPointer<const Self>            ConstPointer;
+  /** Standard class type alias. */
+  using Self = GaussianRadialBasisFunction;
+  using Superclass = RadialBasisFunctionBase<ScalarType>;
+  using ArrayType = typename Superclass::ArrayType;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(GaussianRadialBasisFunction,RadialBasisFunctionBase);

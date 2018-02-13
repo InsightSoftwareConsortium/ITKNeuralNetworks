@@ -48,31 +48,30 @@ class ITK_TEMPLATE_EXPORT RBFNetwork :
     public MultilayerNeuralNetworkBase<TMeasurementVector, TTargetVector, BackPropagationLayer<TMeasurementVector, TTargetVector> >
 {
 public:
-  typedef RBFNetwork               Self;
-  typedef MultilayerNeuralNetworkBase<TMeasurementVector, TTargetVector , BackPropagationLayer<TMeasurementVector, TTargetVector> >
-                                   Superclass;
-  typedef SmartPointer<Self>       Pointer;
-  typedef SmartPointer<const Self> ConstPointer;
+  using Self = RBFNetwork;
+  using Superclass = MultilayerNeuralNetworkBase<TMeasurementVector, TTargetVector , BackPropagationLayer<TMeasurementVector, TTargetVector> >;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
-  typedef typename Superclass::ValueType             ValueType;
-  typedef typename Superclass::MeasurementVectorType MeasurementVectorType;
-  typedef typename Superclass::TargetVectorType      TargetVectorType;
-  typedef typename Superclass::NetworkOutputType     NetworkOutputType;
+  using ValueType = typename Superclass::ValueType;
+  using MeasurementVectorType = typename Superclass::MeasurementVectorType;
+  using TargetVectorType = typename Superclass::TargetVectorType;
+  using NetworkOutputType = typename Superclass::NetworkOutputType;
 
-  typedef typename Superclass::LayerInterfaceType LayerInterfaceType;
-  typedef typename Superclass::LearningLayerType  LearningLayerType;
+  using LayerInterfaceType = typename Superclass::LayerInterfaceType;
+  using LearningLayerType = typename Superclass::LearningLayerType;
 
-  typedef typename Superclass::WeightVectorType WeightVectorType;
-  typedef typename Superclass::LayerVectorType  LayerVectorType;
+  using WeightVectorType = typename Superclass::WeightVectorType;
+  using LayerVectorType = typename Superclass::LayerVectorType;
 
-  typedef typename Superclass::TransferFunctionInterfaceType TransferFunctionInterfaceType;
-  typedef typename Superclass::InputFunctionInterfaceType    InputFunctionInterfaceType;
+  using TransferFunctionInterfaceType = typename Superclass::TransferFunctionInterfaceType;
+  using InputFunctionInterfaceType = typename Superclass::InputFunctionInterfaceType;
 
   // Specializations for RBF Networks
-  typedef Array<ValueType>                            ArrayType;
-  typedef EuclideanDistanceMetric<ArrayType>          DistanceMetricType;
-  typedef RadialBasisFunctionBase<ValueType>          RBFTransferFunctionType;
-  typedef RBFLayer<TMeasurementVector, TTargetVector> HiddenLayerType;
+  using ArrayType = Array<ValueType>;
+  using DistanceMetricType = EuclideanDistanceMetric<ArrayType>;
+  using RBFTransferFunctionType = RadialBasisFunctionBase<ValueType>;
+  using HiddenLayerType = RBFLayer<TMeasurementVector, TTargetVector>;
 
   itkSetMacro(Classes, unsigned int);
   itkGetConstReferenceMacro(Classes, unsigned int);

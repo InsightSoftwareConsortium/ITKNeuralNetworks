@@ -35,14 +35,14 @@ class ITK_TEMPLATE_EXPORT SigmoidTransferFunction : public TransferFunctionBase<
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef SigmoidTransferFunction          Self;
-  typedef TransferFunctionBase<TScalar>    Superclass;
-  typedef SmartPointer<Self>               Pointer;
-  typedef SmartPointer<const Self>         ConstPointer;
+  /** Standard class type alias. */
+  using Self = SigmoidTransferFunction;
+  using Superclass = TransferFunctionBase<TScalar>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
-  typedef TScalar                                        ScalarType;
-  typedef typename NumericTraits< ScalarType >::RealType RealType;
+  using ScalarType = TScalar;
+  using RealType = typename NumericTraits< ScalarType >::RealType;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(SigmoidTransferFunction, TransferFunctionBase);

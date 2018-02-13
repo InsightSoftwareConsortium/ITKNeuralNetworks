@@ -37,19 +37,19 @@ class ITK_TEMPLATE_EXPORT RBFBackPropagationLearningFunction : public LearningFu
 {
 public:
 
-  typedef RBFBackPropagationLearningFunction             Self;
-  typedef LearningFunctionBase<LayerType, TTargetVector> Superclass;
-  typedef SmartPointer<Self>                             Pointer;
-  typedef SmartPointer<const Self>                       ConstPointer;
+  using Self = RBFBackPropagationLearningFunction;
+  using Superclass = LearningFunctionBase<LayerType, TTargetVector>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
-  typedef typename LayerType::LayerInterfaceType LayerInterfaceType;
+  using LayerInterfaceType = typename LayerType::LayerInterfaceType;
   /** Method for creation through the object factory. */
   itkTypeMacro(RBFBackPropagationLearningFunction, LearningFunctionBase);
 
   /** Method for creation through the object factory. */
   itkNewMacro(Self);
 
-  typedef typename Superclass::ValueType ValueType;
+  using ValueType = typename Superclass::ValueType;
 
   void Learn(LayerType* layer,ValueType learningrate) override;
   void Learn(LayerType* layer, TTargetVector error, ValueType learningrate) override;

@@ -35,10 +35,10 @@ class ITK_TEMPLATE_EXPORT IterativeSupervisedTrainingFunction : public TrainingF
 {
 public:
 
-  typedef IterativeSupervisedTrainingFunction                      Self;
-  typedef TrainingFunctionBase<TSample, TTargetVector, ScalarType> Superclass;
-  typedef SmartPointer<Self>                                       Pointer;
-  typedef SmartPointer<const Self>                                 ConstPointer;
+  using Self = IterativeSupervisedTrainingFunction;
+  using Superclass = TrainingFunctionBase<TSample, TTargetVector, ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Method for creation through the object factory. */
   itkTypeMacro(IterativeSupervisedTrainingFunction, TrainingFunctionBase);
@@ -46,8 +46,8 @@ public:
   /** Method for creation through the object factory. */
   itkNewMacro(Self);
 
-  typedef typename Superclass::NetworkType        NetworkType;
-  typedef typename Superclass::InternalVectorType InternalVectorType;
+  using NetworkType = typename Superclass::NetworkType;
+  using InternalVectorType = typename Superclass::InternalVectorType;
 
   void SetNumOfIterations(SizeValueType i);
 

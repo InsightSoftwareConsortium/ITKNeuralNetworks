@@ -37,11 +37,11 @@ class ITK_TEMPLATE_EXPORT ProductInputFunction : public InputFunctionBase<TMeasu
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef ProductInputFunction                              Self;
-  typedef InputFunctionBase<TMeasurementVector, ScalarType> Superclass;
-  typedef SmartPointer<Self>                                Pointer;
-  typedef SmartPointer<const Self>                          ConstPointer;
+  /** Standard class type alias. */
+  using Self = ProductInputFunction;
+  using Superclass = InputFunctionBase<TMeasurementVector, ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(ProductInputFunction, FunctionBase);

@@ -42,12 +42,12 @@ QPropXORTest1(int argc, char* argv[])
 
   srand(time(ITK_NULLPTR));
 
-  typedef itk::Array<double>                                 MeasurementVectorType;
-  typedef itk::Array<double>                                 TargetVectorType;
-  typedef itk::Statistics::ListSample<MeasurementVectorType> SampleType;
-  typedef itk::Statistics::ListSample<TargetVectorType>      TargetType;
+  using MeasurementVectorType = itk::Array<double>;
+  using TargetVectorType = itk::Array<double>;
+  using SampleType = itk::Statistics::ListSample<MeasurementVectorType>;
+  using TargetType = itk::Statistics::ListSample<TargetVectorType>;
 
-  typedef itk::Statistics::BatchSupervisedTrainingFunction<SampleType, TargetType, double> TrainingFcnType;
+  using TrainingFcnType = itk::Statistics::BatchSupervisedTrainingFunction<SampleType, TargetType, double>;
 
   MeasurementVectorType mv(num_input_nodes);
   TargetVectorType tv(num_output_nodes);
@@ -79,20 +79,20 @@ QPropXORTest1(int argc, char* argv[])
 
   std::cout << sample->Size() << std::endl;
 
-  typedef itk::Statistics::OneHiddenLayerBackPropagationNeuralNetwork
-    <MeasurementVectorType, TargetVectorType> NetworkType;
+  using NetworkType = itk::Statistics::OneHiddenLayerBackPropagationNeuralNetwork
+    <MeasurementVectorType, TargetVectorType>;
 
   NetworkType::Pointer net1 = NetworkType::New();
   net1->SetNumOfInputNodes(num_input_nodes);
   net1->SetNumOfFirstHiddenNodes(num_hidden_nodes);
   net1->SetNumOfOutputNodes(num_output_nodes);
 
-  typedef itk::Statistics::SymmetricSigmoidTransferFunction<double> tfType;
+  using tfType = itk::Statistics::SymmetricSigmoidTransferFunction<double>;
   tfType::Pointer transferfunction1=tfType::New();
   net1->SetFirstHiddenTransferFunction(transferfunction1);
   net1->SetOutputTransferFunction(transferfunction1);
 
-  typedef itk::Statistics::QuickPropLearningRule<NetworkType::LayerInterfaceType, TargetVectorType> QuickPropLearningRuleType;
+  using QuickPropLearningRuleType = itk::Statistics::QuickPropLearningRule<NetworkType::LayerInterfaceType, TargetVectorType>;
   QuickPropLearningRuleType::Pointer learningfunction=QuickPropLearningRuleType::New();
 
   net1->SetLearningFunction(learningfunction);

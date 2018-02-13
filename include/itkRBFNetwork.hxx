@@ -30,16 +30,16 @@ template<typename TMeasurementVector, typename TTargetVector>
 RBFNetwork<TMeasurementVector,TTargetVector>
 ::RBFNetwork()
 {
-  typedef IdentityTransferFunction<ValueType> tfType1;
+  using tfType1 = IdentityTransferFunction<ValueType>;
   m_InputTransferFunction=tfType1::New();
 
-  typedef GaussianRadialBasisFunction<ValueType> tfType2;
+  using tfType2 = GaussianRadialBasisFunction<ValueType>;
   m_FirstHiddenTransferFunction = tfType2::New();
 
-  typedef IdentityTransferFunction<ValueType> tfType3;
+  using tfType3 = IdentityTransferFunction<ValueType>;
   m_OutputTransferFunction= tfType3::New();
 
-  typedef SumInputFunction<ValueType*, ValueType> InputFcnType;
+  using InputFcnType = SumInputFunction<ValueType*, ValueType>;
   m_InputFunction=InputFcnType::New();
 
   m_FirstHiddenLayerBias = 1.0;

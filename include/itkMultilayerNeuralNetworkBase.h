@@ -35,35 +35,31 @@ class ITK_TEMPLATE_EXPORT MultilayerNeuralNetworkBase : public NeuralNetworkObje
 {
 public:
 
-  typedef MultilayerNeuralNetworkBase  Self;
-  typedef NeuralNetworkObject<TMeasurementVector, TTargetVector>
-                                       Superclass;
-  typedef SmartPointer<Self>           Pointer;
-  typedef SmartPointer<const Self>     ConstPointer;
+  using Self = MultilayerNeuralNetworkBase;
+  using Superclass = NeuralNetworkObject<TMeasurementVector, TTargetVector>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   itkTypeMacro(MultilayerNeuralNetworkBase, NeuralNetworkObject);
 
   /** New macro for creation of through a Smart Pointer. */
   itkNewMacro( Self );
 
-  typedef typename Superclass::ValueType             ValueType;
-  typedef typename Superclass::MeasurementVectorType MeasurementVectorType;
-  typedef typename Superclass::TargetVectorType      TargetVectorType;
-  typedef typename Superclass::NetworkOutputType     NetworkOutputType;
+  using ValueType = typename Superclass::ValueType;
+  using MeasurementVectorType = typename Superclass::MeasurementVectorType;
+  using TargetVectorType = typename Superclass::TargetVectorType;
+  using NetworkOutputType = typename Superclass::NetworkOutputType;
 
-  typedef typename Superclass::LayerInterfaceType        LayerInterfaceType;
+  using LayerInterfaceType = typename Superclass::LayerInterfaceType;
 
-  typedef TLearningLayer                                 LearningLayerType;
-  typedef LearningFunctionBase<typename TLearningLayer::LayerInterfaceType, TTargetVector>
-                                                         LearningFunctionInterfaceType;
+  using LearningLayerType = TLearningLayer;
+  using LearningFunctionInterfaceType = LearningFunctionBase<typename TLearningLayer::LayerInterfaceType, TTargetVector>;
 
-  typedef std::vector<typename LayerInterfaceType::WeightSetInterfaceType::Pointer>
-                                                         WeightVectorType;
-        typedef std::vector<typename LayerInterfaceType::Pointer>
-                                                         LayerVectorType;
+  using WeightVectorType = std::vector<typename LayerInterfaceType::WeightSetInterfaceType::Pointer>;
+        using LayerVectorType = std::vector<typename LayerInterfaceType::Pointer>;
 
-        typedef TransferFunctionBase<ValueType>          TransferFunctionInterfaceType;
-        typedef InputFunctionBase<ValueType*, ValueType> InputFunctionInterfaceType;
+        using TransferFunctionInterfaceType = TransferFunctionBase<ValueType>;
+        using InputFunctionInterfaceType = InputFunctionBase<ValueType*, ValueType>;
 
 //#define __USE_OLD_INTERFACE  Comment out to ensure that new interface works
 #ifdef __USE_OLD_INTERFACE

@@ -34,10 +34,10 @@ template<class ScalarType>
 class LogSigmoidTransferFunctionTestHelper : public LogSigmoidTransferFunction<ScalarType>
 {
 public:
-  typedef LogSigmoidTransferFunctionTestHelper    Self;
-  typedef LogSigmoidTransferFunction<ScalarType>  Superclass;
-  typedef SmartPointer<Self>                      Pointer;
-  typedef SmartPointer<const Self>                ConstPointer;
+  using Self = LogSigmoidTransferFunctionTestHelper;
+  using Superclass = LogSigmoidTransferFunction<ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   itkTypeMacro( LogSigmoidTransferFunctionTestHelper, LogSigmoidTransferFunction );
 
@@ -50,7 +50,7 @@ public:
     double val;
     double deriv;
 
-    typedef LogSigmoidTransferFunction<ScalarType> LogSigmoidTFType;
+    using LogSigmoidTFType = LogSigmoidTransferFunction<ScalarType>;
 
     typename LogSigmoidTFType::Pointer logSigmoidTF = LogSigmoidTFType::New();
 
@@ -78,14 +78,14 @@ int itkLogSigmoidTransferFunctionTest( int itkNotUsed(argc), char* itkNotUsed(ar
   // Exercise basic object methods
   // Done outside the helper function in the test because GCC is limited
   // when calling overloaded base class functions.
-  typedef itk::Statistics::LogSigmoidTransferFunction<unsigned char> LogSigmoidTFType;
+  using LogSigmoidTFType = itk::Statistics::LogSigmoidTransferFunction<unsigned char>;
   LogSigmoidTFType::Pointer logSigmoidTF = LogSigmoidTFType::New();
 
   EXERCISE_BASIC_OBJECT_METHODS( logSigmoidTF, LogSigmoidTransferFunction,
     TransferFunctionBase);
 
 
-  typedef int ScalarType;
+  using ScalarType = int;
 
   // Set log sigmoid transfer function's parameters and expected values
   ScalarType input = 2;

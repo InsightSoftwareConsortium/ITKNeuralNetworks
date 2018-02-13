@@ -37,19 +37,19 @@ class ITK_TEMPLATE_EXPORT NeuralNetworkObject : public DataObject
 {
 public:
 
-  typedef NeuralNetworkObject      Self;
-  typedef DataObject               Superclass;
-  typedef SmartPointer<Self>       Pointer;
-  typedef SmartPointer<const Self> ConstPointer;
+  using Self = NeuralNetworkObject;
+  using Superclass = DataObject;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   itkTypeMacro(NeuralNetworkObject, DataObject);
 
-  typedef TMeasurementVector                        MeasurementVectorType;
-  typedef typename MeasurementVectorType::ValueType ValueType;
-  typedef Array<ValueType>                          NetworkOutputType;
-  typedef TTargetVector                             TargetVectorType;
+  using MeasurementVectorType = TMeasurementVector;
+  using ValueType = typename MeasurementVectorType::ValueType;
+  using NetworkOutputType = Array<ValueType>;
+  using TargetVectorType = TTargetVector;
 
-  typedef LayerBase<TMeasurementVector, TTargetVector> LayerInterfaceType;
+  using LayerInterfaceType = LayerBase<TMeasurementVector, TTargetVector>;
 
   virtual NetworkOutputType GenerateOutput(TMeasurementVector samplevector)=0;
 

@@ -40,15 +40,15 @@ class LearningFunctionBase : public LightProcessObject
 {
 public:
 
-  typedef LearningFunctionBase     Self;
-  typedef LightProcessObject       Superclass;
-  typedef SmartPointer<Self>       Pointer;
-  typedef SmartPointer<const Self> ConstPointer;
+  using Self = LearningFunctionBase;
+  using Superclass = LightProcessObject;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Method for creation through the object factory. */
   itkTypeMacro(LearningFunctionBase, LightProcessObject);
 
-  typedef typename LayerType::ValueType ValueType;
+  using ValueType = typename LayerType::ValueType;
 
   virtual void Learn(LayerType* layer, ValueType) = 0;
   virtual void Learn(LayerType* layer, TTargetVector error,ValueType) = 0;

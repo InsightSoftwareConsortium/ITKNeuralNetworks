@@ -36,10 +36,10 @@ class ITK_TEMPLATE_EXPORT CompletelyConnectedWeightSet : public WeightSetBase<TM
 public:
   #define MAX_SIZE 1000
 
-  typedef CompletelyConnectedWeightSet                     Self;
-  typedef WeightSetBase<TMeasurementVector, TTargetVector> Superclass;
-  typedef SmartPointer<Self>                               Pointer;
-  typedef SmartPointer<const Self>                         ConstPointer;
+  using Self = CompletelyConnectedWeightSet;
+  using Superclass = WeightSetBase<TMeasurementVector, TTargetVector>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   itkTypeMacro(CompletelyConnectedWeightSet, WeightSetBase);
   itkNewMacro(Self);

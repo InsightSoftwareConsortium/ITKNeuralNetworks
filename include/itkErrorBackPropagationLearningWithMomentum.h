@@ -42,11 +42,10 @@ template<typename LayerType, typename TTargetVector>
 class ITK_TEMPLATE_EXPORT ErrorBackPropagationLearningWithMomentum : public LearningFunctionBase<typename LayerType::LayerInterfaceType, TTargetVector>
 {
 public:
-  typedef ErrorBackPropagationLearningWithMomentum Self;
-  typedef LearningFunctionBase<typename LayerType::LayerInterfaceType, TTargetVector>
-                                                   Superclass;
-  typedef SmartPointer<Self>                       Pointer;
-  typedef SmartPointer<const Self>                 ConstPointer;
+  using Self = ErrorBackPropagationLearningWithMomentum;
+  using Superclass = LearningFunctionBase<typename LayerType::LayerInterfaceType, TTargetVector>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Method for creation through the object factory. */
   itkTypeMacro(ErrorBackPropagationLearningWithMomentum, LearningFunctionBase);
@@ -54,8 +53,8 @@ public:
   /** Method for creation through the object factory. */
   itkNewMacro(Self);
 
-  typedef typename Superclass::ValueType           ValueType;
-  typedef typename LayerType::LayerInterfaceType   LayerInterfaceType;
+  using ValueType = typename Superclass::ValueType;
+  using LayerInterfaceType = typename LayerType::LayerInterfaceType;
 
   void Learn( LayerInterfaceType * layer, ValueType learningrate ) override;
   void Learn( LayerInterfaceType * layer, TTargetVector errors, ValueType learningrate ) override;

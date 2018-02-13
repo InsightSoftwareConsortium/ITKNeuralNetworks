@@ -34,10 +34,10 @@ template<class ScalarType>
 class SigmoidTransferFunctionTestHelper : public SigmoidTransferFunction<ScalarType>
 {
 public:
-  typedef SigmoidTransferFunctionTestHelper   Self;
-  typedef SigmoidTransferFunction<ScalarType> Superclass;
-  typedef SmartPointer<Self>                  Pointer;
-  typedef SmartPointer<const Self>            ConstPointer;
+  using Self = SigmoidTransferFunctionTestHelper;
+  using Superclass = SigmoidTransferFunction<ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   itkTypeMacro( SigmoidTransferFunctionTestHelper, SigmoidTransferFunction );
 
@@ -51,7 +51,7 @@ public:
     double val;
     double deriv;
 
-    typedef SigmoidTransferFunction<ScalarType> SigmoidTFType;
+    using SigmoidTFType = SigmoidTransferFunction<ScalarType>;
 
     typename SigmoidTFType::Pointer sigmoidTF = SigmoidTFType::New();
 
@@ -89,7 +89,7 @@ protected:
 int itkSigmoidTransferFunctionTest( int itkNotUsed(argc), char* itkNotUsed(argv)[] )
 {
 
-  typedef int ScalarType;
+  using ScalarType = int;
 
   // Set sigmoid transfer function's parameters
   ScalarType input = 2;

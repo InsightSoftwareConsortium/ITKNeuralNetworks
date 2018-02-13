@@ -30,16 +30,16 @@ template<typename TMeasurementVector, typename TTargetVector>
 TwoHiddenLayerBackPropagationNeuralNetwork<TMeasurementVector,TTargetVector>
 ::TwoHiddenLayerBackPropagationNeuralNetwork()
 {
-  typedef IdentityTransferFunction<ValueType> tfType1;
+  using tfType1 = IdentityTransferFunction<ValueType>;
   m_InputTransferFunction = tfType1::New();
 
-  typedef TanSigmoidTransferFunction<ValueType> tfType2;
+  using tfType2 = TanSigmoidTransferFunction<ValueType>;
   m_FirstHiddenTransferFunction = tfType2::New();
   m_SecondHiddenTransferFunction = tfType2::New();
-  typedef TanSigmoidTransferFunction<ValueType> tfType3;
+  using tfType3 = TanSigmoidTransferFunction<ValueType>;
   m_OutputTransferFunction= tfType3::New();
 
-  typedef SumInputFunction<ValueType*, ValueType> InputFcnType;
+  using InputFcnType = SumInputFunction<ValueType*, ValueType>;
   m_InputFunction=InputFcnType::New();
 
   m_NumOfInputNodes = 0;

@@ -37,28 +37,25 @@ template<typename TMeasurementVector, typename TTargetVector>
 class ITK_TEMPLATE_EXPORT BackPropagationLayer : public LayerBase<TMeasurementVector, TTargetVector>
 {
 public:
-  typedef BackPropagationLayer                         Self;
-  typedef LayerBase<TMeasurementVector, TTargetVector> Superclass;
-  typedef SmartPointer<Self>                           Pointer;
-  typedef SmartPointer<const Self>                     ConstPointer;
+  using Self = BackPropagationLayer;
+  using Superclass = LayerBase<TMeasurementVector, TTargetVector>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Method for creation through the object factory. */
   itkTypeMacro(BackPropagationLayer, LayerBase);
   itkNewMacro(Self);
 
-  typedef typename Superclass::ValueType              ValueType;
-  typedef vnl_vector<ValueType>                       NodeVectorType;
-  typedef typename Superclass::InternalVectorType     InternalVectorType;
-  typedef typename Superclass::OutputVectorType       OutputVectorType;
-  typedef typename Superclass::LayerInterfaceType     LayerInterfaceType;
-  typedef CompletelyConnectedWeightSet<TMeasurementVector,TTargetVector>
-                                                      WeightSetType;
+  using ValueType = typename Superclass::ValueType;
+  using NodeVectorType = vnl_vector<ValueType>;
+  using InternalVectorType = typename Superclass::InternalVectorType;
+  using OutputVectorType = typename Superclass::OutputVectorType;
+  using LayerInterfaceType = typename Superclass::LayerInterfaceType;
+  using WeightSetType = CompletelyConnectedWeightSet<TMeasurementVector,TTargetVector>;
 
-  typedef typename Superclass::WeightSetInterfaceType WeightSetInterfaceType;
-  typedef typename Superclass::InputFunctionInterfaceType
-                                                      InputFunctionInterfaceType;
-  typedef typename Superclass::TransferFunctionInterfaceType
-                                                      TransferFunctionInterfaceType;
+  using WeightSetInterfaceType = typename Superclass::WeightSetInterfaceType;
+  using InputFunctionInterfaceType = typename Superclass::InputFunctionInterfaceType;
+  using TransferFunctionInterfaceType = typename Superclass::TransferFunctionInterfaceType;
   //Member Functions
   void SetNumberOfNodes(unsigned int numNodes) override;
   ValueType GetInputValue(unsigned int i) const override;

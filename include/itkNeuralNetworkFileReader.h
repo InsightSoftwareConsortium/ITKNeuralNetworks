@@ -56,11 +56,11 @@ class ITK_TEMPLATE_EXPORT NeuralNetworkFileReader:public Object
 {
 public:
 
-  /** SmartPointer typedef support */
-  typedef NeuralNetworkFileReader    Self;
-  typedef Object                     Superclass;
-  typedef SmartPointer< Self >       Pointer;
-  typedef SmartPointer< const Self > ConstPointer;
+  /** SmartPointer type alias support */
+  using Self = NeuralNetworkFileReader;
+  using Superclass = Object;
+  using Pointer = SmartPointer< Self >;
+  using ConstPointer = SmartPointer< const Self >;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(NeuralNetworkFileReader, Object);
@@ -68,31 +68,27 @@ public:
   /** Method for creation through the object factory */
   itkNewMacro(Self);
 
-  typedef typename TNetwork::MeasurementVectorType MeasurementVectorType;
-  typedef typename TNetwork::TargetVectorType      TargetVectorType;
-  typedef Statistics::BackPropagationLayer<
-    MeasurementVectorType, TargetVectorType >           BackPropagationLayerType;
-  typedef typename BackPropagationLayerType::Pointer BackPropagationLayerPointer;
-  typedef typename MeasurementVectorType::ValueType  MeasurementVectorValueType;
+  using MeasurementVectorType = typename TNetwork::MeasurementVectorType;
+  using TargetVectorType = typename TNetwork::TargetVectorType;
+  using BackPropagationLayerType = Statistics::BackPropagationLayer<
+    MeasurementVectorType, TargetVectorType >;
+  using BackPropagationLayerPointer = typename BackPropagationLayerType::Pointer;
+  using MeasurementVectorValueType = typename MeasurementVectorType::ValueType;
 
-  typedef typename TNetwork::LayerInterfaceType      LayerInterfaceType;
-  typedef typename LayerInterfaceType::WeightSetType WeightSetType;
-  typedef typename WeightSetType::Pointer            WeightSetPointer;
+  using LayerInterfaceType = typename TNetwork::LayerInterfaceType;
+  using WeightSetType = typename LayerInterfaceType::WeightSetType;
+  using WeightSetPointer = typename WeightSetType::Pointer;
 
-// typedef typename TNetwork::Pointer                       NetworkPointer;
-// typedef typename TNetwork::ConstPointer                  NetworkConstPointer;
+// using NetworkPointer = typename TNetwork::Pointer;
+// using NetworkConstPointer = typename TNetwork::ConstPointer;
 
-//  typedef typename LayerInterfaceType::TransferFunctionType::Pointer
-//      TransferFunctionPointer;
-//  typedef typename LayerInterfaceType::TransferFunctionType::ConstPointer
-// TransferFunctionConstPointer;
+//  using TransferFunctionPointer = typename LayerInterfaceType::TransferFunctionType::Pointer   ;
+//  using TransferFunctionConstPointer = typename LayerInterfaceType::TransferFunctionType::ConstPointer;
 
-//  typedef typename LayerInterfaceType::InputFunctionType::Pointer
-//         InputFunctionPointer;
-//  typedef typename LayerInterfaceType::InputFunctionType::ConstPointer
-//    InputFunctionConstPointer;
+//  using InputFunctionPointer = typename LayerInterfaceType::InputFunctionType::Pointer        ;
+//  using InputFunctionConstPointer = typename LayerInterfaceType::InputFunctionType::ConstPointer  ;
 
-//  typedef typename LayerInterfaceType::ValueType                    ValueType;
+//  using ValueType = typename LayerInterfaceType::ValueType;
 
   /** Set the filename  */
   itkSetStringMacro(FileName);
@@ -108,7 +104,7 @@ public:
 #ifdef IGNORE
 #undef IGNORE
 #endif
-  typedef enum { IGNORE = 0, ASCII = 1, BINARY = 2 } NetworkWriteWeightsType;
+  using NetworkWriteWeightsType = enum { IGNORE = 0, ASCII = 1, BINARY = 2 };
   itkSetEnumMacro(ReadWeightValuesType, NetworkWriteWeightsType);
   itkGetEnumMacro(ReadWeightValuesType, NetworkWriteWeightsType);
 
@@ -121,16 +117,16 @@ private:
 
   void ClearFields();
 
-  typedef std::vector< MET_FieldRecordType * >                                                  FieldsContainerType;
-  typedef std::vector< typename TNetwork::LayerInterfaceType::Pointer >                         LayersContainer;
-  typedef std::vector< typename TNetwork::LayerInterfaceType::WeightSetInterfaceType::Pointer > WeightsContainer;
+  using FieldsContainerType = std::vector< MET_FieldRecordType * >;
+  using LayersContainer = std::vector< typename TNetwork::LayerInterfaceType::Pointer >;
+  using WeightsContainer = std::vector< typename TNetwork::LayerInterfaceType::WeightSetInterfaceType::Pointer >;
 
-  typedef struct {
+  using LineType = struct {
     std::string name;
     std::string value;
-  }                                 LineType;
+  };
 
-  typedef std::list< LineType > LinesContainer;
+  using LinesContainer = std::list< LineType >;
 
   typename TNetwork::Pointer m_Network;
 

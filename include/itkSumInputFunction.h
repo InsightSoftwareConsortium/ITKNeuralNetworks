@@ -37,11 +37,11 @@ class ITK_TEMPLATE_EXPORT SumInputFunction : public InputFunctionBase<TMeasureme
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef SumInputFunction                                  Self;
-  typedef InputFunctionBase<TMeasurementVector, ScalarType> Superclass;
-  typedef SmartPointer<Self>                                Pointer;
-  typedef SmartPointer<const Self>                          ConstPointer;
+  /** Standard class type alias. */
+  using Self = SumInputFunction;
+  using Superclass = InputFunctionBase<TMeasurementVector, ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(SumInputFunction, FunctionBase);

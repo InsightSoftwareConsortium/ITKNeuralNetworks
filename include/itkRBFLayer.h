@@ -39,32 +39,31 @@ template<typename TMeasurementVector, typename TTargetVector>
 class ITK_TEMPLATE_EXPORT RBFLayer : public LayerBase<TMeasurementVector, TTargetVector>
 {
 public:
-  typedef RBFLayer                                     Self;
-  typedef LayerBase<TMeasurementVector, TTargetVector> Superclass;
-  typedef SmartPointer<Self>                           Pointer;
-  typedef SmartPointer<const Self>                     ConstPointer;
+  using Self = RBFLayer;
+  using Superclass = LayerBase<TMeasurementVector, TTargetVector>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Method for creation through the object factory. */
   itkTypeMacro(RBFLayer, LayerBase);
   itkNewMacro(Self);
 
-  typedef typename Superclass::ValueType          ValueType;
-  typedef typename Superclass::ValuePointer       ValuePointer;
-  typedef vnl_vector<ValueType>                   NodeVectorType;
-  typedef typename Superclass::InternalVectorType InternalVectorType;
-  typedef typename Superclass::OutputVectorType   OutputVectorType;
-  typedef typename Superclass::LayerInterfaceType LayerInterfaceType;
-  typedef CompletelyConnectedWeightSet<TMeasurementVector,TTargetVector>
-                                                  WeightSetType;
+  using ValueType = typename Superclass::ValueType;
+  using ValuePointer = typename Superclass::ValuePointer;
+  using NodeVectorType = vnl_vector<ValueType>;
+  using InternalVectorType = typename Superclass::InternalVectorType;
+  using OutputVectorType = typename Superclass::OutputVectorType;
+  using LayerInterfaceType = typename Superclass::LayerInterfaceType;
+  using WeightSetType = CompletelyConnectedWeightSet<TMeasurementVector,TTargetVector>;
 
-  typedef typename Superclass::WeightSetInterfaceType        WeightSetInterfaceType;
-  typedef typename Superclass::InputFunctionInterfaceType    InputFunctionInterfaceType;
-  typedef typename Superclass::TransferFunctionInterfaceType TransferFunctionInterfaceType;
+  using WeightSetInterfaceType = typename Superclass::WeightSetInterfaceType;
+  using InputFunctionInterfaceType = typename Superclass::InputFunctionInterfaceType;
+  using TransferFunctionInterfaceType = typename Superclass::TransferFunctionInterfaceType;
 
   //Distance Metric
-  typedef EuclideanDistanceMetric<InternalVectorType> DistanceMetricType;
-  typedef typename DistanceMetricType::Pointer        DistanceMetricPointer;
-  typedef RadialBasisFunctionBase<ValueType>          RBFType;
+  using DistanceMetricType = EuclideanDistanceMetric<InternalVectorType>;
+  using DistanceMetricPointer = typename DistanceMetricType::Pointer;
+  using RBFType = RadialBasisFunctionBase<ValueType>;
 
   //Member Functions
   itkGetConstReferenceMacro(RBF_Dim, unsigned int);

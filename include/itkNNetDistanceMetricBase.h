@@ -35,17 +35,17 @@ class NNetDistanceMetricBase : public FunctionBase<TMeasurementVector, double>
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef NNetDistanceMetricBase                  Self;
-  typedef FunctionBase<TMeasurementVector,double> Superclass;
-  typedef SmartPointer<Self>                      Pointer;
-  typedef SmartPointer<const Self>                ConstPointer;
+  /** Standard class type alias. */
+  using Self = NNetDistanceMetricBase;
+  using Superclass = FunctionBase<TMeasurementVector,double>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(NNetDistanceMetricBase, FunctionBase);
 
   /** Input type */
-  typedef TMeasurementVector InputVectorType;
+  using InputVectorType = TMeasurementVector;
 
   /** Evaluate at the specified input position */
   virtual double Evaluate(const InputVectorType& x1, const InputVectorType& x2) const = 0;

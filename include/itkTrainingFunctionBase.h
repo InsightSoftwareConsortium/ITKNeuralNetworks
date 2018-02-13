@@ -37,10 +37,10 @@ template<typename TSample, typename TTargetVector, typename ScalarType>
 class ITK_TEMPLATE_EXPORT TrainingFunctionBase : public LightProcessObject
 {
 public:
-  typedef TrainingFunctionBase     Self;
-  typedef LightProcessObject       Superclass;
-  typedef SmartPointer<Self>       Pointer;
-  typedef SmartPointer<const Self> ConstPointer;
+  using Self = TrainingFunctionBase;
+  using Superclass = LightProcessObject;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Method for creation through the object factory. */
   itkTypeMacro(TrainingFunctionBase, LightProcessObject);
@@ -48,17 +48,16 @@ public:
   /** Method for creation through the object factory. */
   itkNewMacro(Self);
 
-  typedef ScalarType                                    ValueType;
-  typedef typename TSample::MeasurementVectorType       VectorType;
-  typedef typename TTargetVector::MeasurementVectorType OutputVectorType;
-  typedef Array<ValueType>                              InternalVectorType;
+  using ValueType = ScalarType;
+  using VectorType = typename TSample::MeasurementVectorType;
+  using OutputVectorType = typename TTargetVector::MeasurementVectorType;
+  using InternalVectorType = Array<ValueType>;
 
-  typedef std::vector<VectorType>                           InputSampleVectorType;
-  typedef std::vector<OutputVectorType>                     OutputSampleVectorType;
-  typedef NeuralNetworkObject<VectorType, OutputVectorType> NetworkType;
-  typedef ErrorFunctionBase<InternalVectorType, ScalarType> PerformanceFunctionType;
-  typedef SquaredDifferenceErrorFunction<InternalVectorType, ScalarType>
-                                                            DefaultPerformanceType;
+  using InputSampleVectorType = std::vector<VectorType>;
+  using OutputSampleVectorType = std::vector<OutputVectorType>;
+  using NetworkType = NeuralNetworkObject<VectorType, OutputVectorType>;
+  using PerformanceFunctionType = ErrorFunctionBase<InternalVectorType, ScalarType>;
+  using DefaultPerformanceType = SquaredDifferenceErrorFunction<InternalVectorType, ScalarType>;
 
   void SetTrainingSamples(TSample* samples);
   void SetTargetValues(TTargetVector* targets);

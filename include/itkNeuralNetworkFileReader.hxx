@@ -209,33 +209,33 @@ NeuralNetworkFileReader< TNetwork >
       mF = MET_GetFieldRecord("TransferFunction", &this->m_Fields);
       if ( !strcmp( (char *)mF->value, "IdentityTransferFunction" ) )
         {
-        typedef Statistics::IdentityTransferFunction< MeasurementVectorValueType > tfType;
+        using tfType = Statistics::IdentityTransferFunction< MeasurementVectorValueType >;
         typename tfType::Pointer tf = tfType::New();
         layerptr->SetTransferFunction(tf);
         }
       else if ( !strcmp( (char *)mF->value, "LogSigmoidTransferFunction" ) )
         {
-        typedef Statistics::LogSigmoidTransferFunction< MeasurementVectorValueType > tfType;
+        using tfType = Statistics::LogSigmoidTransferFunction< MeasurementVectorValueType >;
         typename tfType::Pointer tf = tfType::New();
         layerptr->SetTransferFunction(tf);
         }
       else if ( !strcmp( (char *)mF->value, "SigmoidTransferFunction" ) )
         {
-        typedef Statistics::SigmoidTransferFunction< MeasurementVectorValueType > tfType;
+        using tfType = Statistics::SigmoidTransferFunction< MeasurementVectorValueType >;
         typename tfType::Pointer tf = tfType::New();
         layerptr->SetTransferFunction(tf);
         }
       else if ( !strcmp( (char *)mF->value, "TanSigmoidTransferFunction" ) )
         {
         std::cout << "Tansigmoid" << std::endl;
-        typedef Statistics::TanSigmoidTransferFunction< MeasurementVectorValueType > tfType;
+        using tfType = Statistics::TanSigmoidTransferFunction< MeasurementVectorValueType >;
         typename tfType::Pointer tf = tfType::New();
         layerptr->SetTransferFunction(tf);
         }
       else if ( !strcmp( (char *)mF->value, "SymmetricSigmoidTransferFunction" ) )
         {
         std::cout << "SymmetricSigmoidTransferFunction" << std::endl;
-        typedef Statistics::SymmetricSigmoidTransferFunction< MeasurementVectorValueType > tfType;
+        using tfType = Statistics::SymmetricSigmoidTransferFunction< MeasurementVectorValueType >;
         typename tfType::Pointer tf = tfType::New();
         layerptr->SetTransferFunction(tf);
         }
@@ -249,9 +249,8 @@ NeuralNetworkFileReader< TNetwork >
       if ( !strcmp( (char *)( mF->value ), "SumInputFunction" ) )
         {
         std::cout << "SumInputFunction" << std::endl;
-        typedef Statistics::SumInputFunction
-        < MeasurementVectorValueType *, MeasurementVectorValueType >
-        ifType;
+        using ifType = Statistics::SumInputFunction
+        < MeasurementVectorValueType *, MeasurementVectorValueType >;
         typename  ifType::Pointer ifcn = ifType::New();
         layerptr->SetNodeInputFunction(ifcn);
         }

@@ -34,11 +34,11 @@ template<typename ScalarType>
 class ITK_TEMPLATE_EXPORT HardLimitTransferFunction : public TransferFunctionBase<ScalarType>
 {
 public:
-  /** Standard class typedefs. */
-  typedef HardLimitTransferFunction        Self;
-  typedef TransferFunctionBase<ScalarType> Superclass;
-  typedef SmartPointer<Self>               Pointer;
-  typedef SmartPointer<const Self>         ConstPointer;
+  /** Standard class type alias. */
+  using Self = HardLimitTransferFunction;
+  using Superclass = TransferFunctionBase<ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(HardLimitTransferFunction, TransferFunctionBase);

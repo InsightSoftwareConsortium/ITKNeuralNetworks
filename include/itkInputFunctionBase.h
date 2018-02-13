@@ -35,20 +35,20 @@ class InputFunctionBase : public FunctionBase<TMeasurementVector, TTargetVector>
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef InputFunctionBase                               Self;
-  typedef FunctionBase<TMeasurementVector, TTargetVector> Superclass;
-  typedef SmartPointer<Self>                              Pointer;
-  typedef SmartPointer<const Self>                        ConstPointer;
+  /** Standard class type alias. */
+  using Self = InputFunctionBase;
+  using Superclass = FunctionBase<TMeasurementVector, TTargetVector>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(InputFunctionBase, FunctionBase);
 
   /** Input type */
-  typedef TMeasurementVector InputVectorType;
+  using InputVectorType = TMeasurementVector;
 
   /** Output type */
-  typedef TTargetVector OutputType;
+  using OutputType = TTargetVector;
 
   /** Evaluate at the specified input position */
   OutputType Evaluate(const InputVectorType& input) const override = 0;

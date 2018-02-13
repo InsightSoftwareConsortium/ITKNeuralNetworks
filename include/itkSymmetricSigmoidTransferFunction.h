@@ -35,11 +35,11 @@ class ITK_TEMPLATE_EXPORT SymmetricSigmoidTransferFunction : public TransferFunc
 {
 public:
 
-  /** Standard class typedefs. */
-  typedef SymmetricSigmoidTransferFunction Self;
-  typedef TransferFunctionBase<ScalarType> Superclass;
-  typedef SmartPointer<Self>               Pointer;
-  typedef SmartPointer<const Self>         ConstPointer;
+  /** Standard class type alias. */
+  using Self = SymmetricSigmoidTransferFunction;
+  using Superclass = TransferFunctionBase<ScalarType>;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Run-time type information (and related methods). */
   itkTypeMacro(SymmetricSigmoidTransferFunction, TransferFunctionBase);
