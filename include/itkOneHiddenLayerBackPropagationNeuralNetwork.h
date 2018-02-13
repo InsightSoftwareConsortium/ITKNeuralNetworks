@@ -71,7 +71,7 @@ public:
 
   //Add the layers to the network.
   // 1 input, 1 hidden, 1 output
-  void Initialize() ITK_OVERRIDE;
+  void Initialize() override;
 
   itkSetMacro(NumOfInputNodes, unsigned int);
   itkGetConstReferenceMacro(NumOfInputNodes, unsigned int);

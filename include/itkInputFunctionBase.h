@@ -58,7 +58,7 @@ public:
 protected:
 
   InputFunctionBase() {};
-  ~InputFunctionBase() ITK_OVERRIDE {};
+  ~InputFunctionBase() override {};
 
   /** Method to print the object. */
   void PrintSelf( std::ostream& os, Indent indent ) const override

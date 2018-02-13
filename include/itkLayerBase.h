@@ -139,7 +139,7 @@ public:
 
 protected:
   LayerBase();
-  ~LayerBase() ITK_OVERRIDE;
+  ~LayerBase() override;
 
   /** Method to print the object. */
   void PrintSelf( std::ostream& os, Indent indent ) const override;
