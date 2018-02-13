@@ -38,10 +38,10 @@ NNetClassifierTest2(int argc, char* argv[])
   char* trainFileName = argv[1];
   char* testFileName = argv[2];
 
-  const int num_input_nodes = 2;
-  const int num_hidden1_nodes = 3;
-  const int num_hidden2_nodes = 2;
-  const int num_output_nodes = 1;
+  constexpr int num_input_nodes = 2;
+  constexpr int num_hidden1_nodes = 3;
+  constexpr int num_hidden2_nodes = 2;
+  constexpr int num_output_nodes = 1;
 
   using MeasurementVectorType = itk::Vector<double, num_input_nodes>;
   using TargetVectorType = itk::Vector<double, num_output_nodes>;

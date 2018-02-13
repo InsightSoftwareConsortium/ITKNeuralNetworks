@@ -33,9 +33,9 @@ XORTest2(int argc, char* argv[])
     }
 
   char* dataFileName = argv[1];
-  const int num_input_nodes = 2;
-  const int num_hidden_nodes = 2;
-  const int num_output_nodes = 1;
+  constexpr int num_input_nodes = 2;
+  constexpr int num_hidden_nodes = 2;
+  constexpr int num_output_nodes = 1;
 
   using MeasurementVectorType = itk::Vector<double, num_input_nodes>;
   using TargetVectorType = itk::Vector<double, num_output_nodes>;

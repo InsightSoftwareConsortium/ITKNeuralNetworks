@@ -35,8 +35,8 @@ int itkNeuralNetworkIOTest(int argc,char* argv[])
   const std::string dataFileName(argv[2]);
   const std::string tempDataDirectory(argv[3]);
 
-  const unsigned int num_input_nodes=2;
-  const unsigned int num_output_nodes=1;
+  constexpr unsigned int num_input_nodes = 2;
+  constexpr unsigned int num_output_nodes = 1;
   using MeasurementVectorType = itk::Vector<double, num_input_nodes>;
   using TargetVectorType = itk::Vector<double, num_output_nodes>;
 
