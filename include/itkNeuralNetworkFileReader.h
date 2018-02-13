@@ -110,7 +110,7 @@ public:
 
 protected:
   NeuralNetworkFileReader();
-  ~NeuralNetworkFileReader();
+  ~NeuralNetworkFileReader() override;
   void PrintSelf(std::ostream & os, Indent indent) const override;
 
 private:
