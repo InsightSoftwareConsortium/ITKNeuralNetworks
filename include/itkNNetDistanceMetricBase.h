@@ -34,6 +34,7 @@ template<typename TMeasurementVector>
 class NNetDistanceMetricBase : public FunctionBase<TMeasurementVector, double>
 {
 public:
+  ITK_DISALLOW_COPY_AND_ASSIGN(NNetDistanceMetricBase );
 
   /** Standard class type alias. */
   using Self = NNetDistanceMetricBase;
@@ -63,11 +64,6 @@ protected:
     os << indent << "NNetDistanceMetricBase(" << this << ")" << std::endl;
     Superclass::PrintSelf( os, indent );
     }
-
-private:
-
-  ITK_DISALLOW_COPY_AND_ASSIGN(NNetDistanceMetricBase );
-
 };
 
 } // end namespace Statistics

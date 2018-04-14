@@ -35,6 +35,8 @@ template<typename TMeasurementVector, typename TTargetVector>
 class ErrorFunctionBase : public FunctionBase<TMeasurementVector, TTargetVector>
 {
 public:
+  ITK_DISALLOW_COPY_AND_ASSIGN(ErrorFunctionBase);
+
   /** Standard class type alias. */
   using Self = ErrorFunctionBase;
   using Superclass = FunctionBase<TMeasurementVector, TTargetVector>;
@@ -63,7 +65,6 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(ErrorFunctionBase);
 };
 
 } // end namespace itk

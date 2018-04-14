@@ -36,6 +36,7 @@ template<typename TMeasurementVector, typename ScalarType>
 class ITK_TEMPLATE_EXPORT SquaredDifferenceErrorFunction : public ErrorFunctionBase<TMeasurementVector, ScalarType>
 {
 public:
+  ITK_DISALLOW_COPY_AND_ASSIGN(SquaredDifferenceErrorFunction);
 
   /** Standard class type alias. */
   using Self = SquaredDifferenceErrorFunction;
@@ -64,10 +65,6 @@ protected:
   ~SquaredDifferenceErrorFunction() override;
 
   void PrintSelf( std::ostream& os, Indent indent ) const override;
-
-private:
-  ITK_DISALLOW_COPY_AND_ASSIGN(SquaredDifferenceErrorFunction);
-
 };
 
 } // end namespace Statistics

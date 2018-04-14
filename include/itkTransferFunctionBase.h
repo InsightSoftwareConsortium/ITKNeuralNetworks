@@ -35,6 +35,7 @@ template<typename ScalarType>
 class TransferFunctionBase : public FunctionBase<ScalarType, ScalarType>
 {
 public:
+  ITK_DISALLOW_COPY_AND_ASSIGN(TransferFunctionBase);
 
   /** Standard class type alias. */
   using Self = TransferFunctionBase;
@@ -71,7 +72,6 @@ protected:
 
 private:
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(TransferFunctionBase);
 };
 
 } // end namespace Statistics

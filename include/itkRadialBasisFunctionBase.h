@@ -35,6 +35,7 @@ template<typename ScalarType>
 class RadialBasisFunctionBase : public FunctionBase<ScalarType,ScalarType>
 {
 public:
+  ITK_DISALLOW_COPY_AND_ASSIGN(RadialBasisFunctionBase);
 
   /** Standard class type alias. */
   using Self = RadialBasisFunctionBase;
@@ -81,7 +82,6 @@ private:
   ArrayType  m_Center;
   ScalarType m_Radius;
 
-  ITK_DISALLOW_COPY_AND_ASSIGN(RadialBasisFunctionBase);
 };
 
 } // end namespace Statistics

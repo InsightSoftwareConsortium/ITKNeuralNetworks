@@ -34,6 +34,7 @@ template<typename TMeasurementVector, typename TTargetVector>
 class InputFunctionBase : public FunctionBase<TMeasurementVector, TTargetVector>
 {
 public:
+  ITK_DISALLOW_COPY_AND_ASSIGN(InputFunctionBase);
 
   /** Standard class type alias. */
   using Self = InputFunctionBase;
@@ -68,8 +69,6 @@ protected:
     }
 
 private:
-
-  ITK_DISALLOW_COPY_AND_ASSIGN(InputFunctionBase);
 
 };//class
 
