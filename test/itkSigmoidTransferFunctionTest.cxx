@@ -61,16 +61,16 @@ public:
     sigmoidTF->SetOutputMinimum(min);
     sigmoidTF->SetOutputMaximum(max);
 
-    TEST_SET_GET_VALUE( alpha, sigmoidTF->GetAlpha() );
-    TEST_SET_GET_VALUE( beta, sigmoidTF->GetBeta() );
-    TEST_SET_GET_VALUE( min, sigmoidTF->GetOutputMinimum() );
-    TEST_SET_GET_VALUE( max, sigmoidTF->GetOutputMaximum() );
+    ITK_TEST_SET_GET_VALUE( alpha, sigmoidTF->GetAlpha() );
+    ITK_TEST_SET_GET_VALUE( beta, sigmoidTF->GetBeta() );
+    ITK_TEST_SET_GET_VALUE( min, sigmoidTF->GetOutputMinimum() );
+    ITK_TEST_SET_GET_VALUE( max, sigmoidTF->GetOutputMaximum() );
 
     val = static_cast<double>(sigmoidTF->Evaluate(input));
     deriv = static_cast<double>(sigmoidTF->EvaluateDerivative(input));
 
-    TEST_EXPECT_EQUAL( expectedVal, val );
-    TEST_EXPECT_EQUAL( expectedDerivVal, deriv );
+    ITK_TEST_EXPECT_EQUAL( expectedVal, val );
+    ITK_TEST_EXPECT_EQUAL( expectedDerivVal, deriv );
 
     sigmoidTF->Print(std::cout);
 

@@ -57,8 +57,8 @@ public:
     val = static_cast<double>(logSigmoidTF->Evaluate(input));
     deriv = static_cast<double>(logSigmoidTF->EvaluateDerivative(input));
 
-    TEST_EXPECT_EQUAL( expectedVal, val );
-    TEST_EXPECT_EQUAL( expectedDerivVal, deriv );
+    ITK_TEST_EXPECT_EQUAL( expectedVal, val );
+    ITK_TEST_EXPECT_EQUAL( expectedDerivVal, deriv );
 
     std::cout << "Test succeeded." << std::endl;
     return EXIT_SUCCESS;
@@ -81,7 +81,7 @@ int itkLogSigmoidTransferFunctionTest( int itkNotUsed(argc), char* itkNotUsed(ar
   using LogSigmoidTFType = itk::Statistics::LogSigmoidTransferFunction<unsigned char>;
   LogSigmoidTFType::Pointer logSigmoidTF = LogSigmoidTFType::New();
 
-  EXERCISE_BASIC_OBJECT_METHODS( logSigmoidTF, LogSigmoidTransferFunction,
+  ITK_EXERCISE_BASIC_OBJECT_METHODS( logSigmoidTF, LogSigmoidTransferFunction,
     TransferFunctionBase);
 
 
