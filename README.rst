@@ -29,6 +29,18 @@ see the `Insight Journal article <http://hdl.handle.net/1926/203>`_::
   http://hdl.handle.net/1926/203
   http://insight-journal.org/browse/publication/93
 
+Caution
+-------
+
+This historical module has been deprecated for many years with out explicit
+support or improvements.  The module has had relatively little modification
+from the initial reference release. The implementations are not optimized for
+GPU or multi-processor CPU implementations.  The use of these classes is likely
+limited to small implmentations due to these performance constraints.
+
+These classes/methods are *not* recommended for modern neural network
+implementations.
+
 
 License
 -------
